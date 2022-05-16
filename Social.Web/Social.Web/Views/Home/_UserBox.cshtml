@@ -1,0 +1,11 @@
+﻿@model Social.Core.ViewModel.UserResponseModel
+@{
+}
+<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+    <a href="profile/@Model.UserGuid">
+        <img src="https://i.pravatar.cc/300?u=@Model.UserGuid"
+             class="img-fluid rounded-4 shadow-2-strong"
+             alt="@Model.FirstName" title="@Model.LastName" />
+        <span>@Model.FirstName @Model.LastName</span>
+    </a>
+</div>

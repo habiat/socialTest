@@ -1,0 +1,31 @@
+﻿@using Social.Web.Components
+@model Social.Core.Paging.PagedResult<Social.Core.ViewModel.UserResponseModel>
+
+@{
+}
+
+<div class="container">
+    <form asp-controller="Home" asp-action="Search" method="get">
+        <div class="input-group">
+            <div class="form-outline">
+                <input type="search" id="search" name="search" class="form-control" />
+                <label class="form-label" for="form1">Search</label>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+    @if (Model != null && Model.Results.Count > 0)
+    {
+        <div class="row">
+            @foreach (var usr in Model.Results)
+            {
+                <partial name="_UserBox" model="usr" />
+            }
+        </div>
+        @(await Component.InvokeAsync<PagerViewComponent>(Model))
+    }
+
+
+</div>

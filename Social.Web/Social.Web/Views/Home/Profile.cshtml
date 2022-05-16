@@ -1,0 +1,57 @@
+﻿@using Social.Core.ViewModel
+@model Social.Core.ViewModel.UserProfile
+@{
+}
+<section class="section team-section">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12 mb-1">
+                    <div class="classic-tabs">
+                        <div class="tabs-wrapper">
+                            <ul class="nav tabs-primary primary-color stateRequest" role="tablist">
+                                @Html.AntiForgeryToken()
+                                @if (Model.StateRequest == (int)StateRequestEnum.None)
+                                {
+                                    <li class="nav-item requestFriend">
+                                        <button id="requestFriend" type="button" class="btn btn-outline-primary waves-effect mr-2">Add Friend</button>
+                                    </li>
+                                }
+                                else if (Model.StateRequest == (int)StateRequestEnum.RequestFriend)
+                                {
+                                    <li class="nav-item cancelRequest">
+                                        <button id="cancelRequest" type="button" class="btn btn-outline-primary waves-effect mr-2">Cancel Request</button>
+                                    </li>
+                                }
+                                else if (Model.StateRequest == (int)StateRequestEnum.Friend)
+                                {
+                                    <li class="nav-item">
+                                        <button id="cancelRequest" type="button" class="btn btn-outline-primary waves-effect mr-2">Unfriend</button>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-md-0 mb-5">
+            <div class="card profile-card">
+                <div class="avatar z-depth-1-half mb-4 text-center">
+                    <img src="https://i.pravatar.cc/300" class="rounded-circle" alt="First sample avatar image">
+                </div>
+                <div class="card-body pt-0 mt-0">
+                    <div class="text-center">
+                        <h3 class="mb-3 font-weight-bold"><strong>@Model.FirstName @Model.LastName</strong></h3>
+                    </div>
+                    <ul class="striped list-unstyled">
+                        <li><strong>E-mail address:</strong> @Model.Email</li>
+                        <li><strong>date create:</strong> @Model.CreatedOnUtc.ToShortDateString()</li>
+                        <li><strong>guid user:</strong>  @Model.UserGuid</li>
+                        <li><strong>StateRequest user:</strong>  @Model.StateRequest</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
