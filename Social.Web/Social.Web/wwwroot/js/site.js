@@ -77,8 +77,7 @@ var SocialApp = (function () {
                 };
                 addAntiForgeryToken(postData);
                 ajaxCall("requestFriend", requestFriendurl, postData);
-                $(".stateRequest li").hide();
-                $(".cancelRequest").show();
+              
             });
             $('#cancelRequest').click(function () {
                 $('#cancelRequest').attr('disabled', true);
@@ -88,8 +87,7 @@ var SocialApp = (function () {
                 };
                 addAntiForgeryToken(postData);
                 ajaxCall("cancelRequest", cancelRequesturl, postData);
-                $(".stateRequest li").hide();
-                $(".requestFriend").show();
+               
             });
         },
         getParameterByName: function (name, url = window.location.href) {

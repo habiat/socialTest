@@ -13,13 +13,13 @@
                                 @Html.AntiForgeryToken()
                                 @if (Model.StateRequest == (int)StateRequestEnum.None)
                                 {
-                                    <li class="nav-item requestFriend">
+                                    <li class="nav-item">
                                         <button id="requestFriend" type="button" class="btn btn-outline-primary waves-effect mr-2">Add Friend</button>
                                     </li>
                                 }
                                 else if (Model.StateRequest == (int)StateRequestEnum.RequestFriend)
                                 {
-                                    <li class="nav-item cancelRequest">
+                                    <li class="nav-item">
                                         <button id="cancelRequest" type="button" class="btn btn-outline-primary waves-effect mr-2">Cancel Request</button>
                                     </li>
                                 }
